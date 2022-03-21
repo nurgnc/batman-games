@@ -1,0 +1,22 @@
+{
+  "name": "batman-games",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build:css",
+    "start": "concurrently \"npm run start:css\"",
+    "start:css": "tailwindcss -o build/styles.css --watch",
+    "build:css": "NODE_ENV=production tailwindcss -o postcss css/styles.css -o build/styles.css -m"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.4",
+    "postcss-cli": "^9.1.0",
+    "tailwindcss": "^3.0.23",
+    "watch": "^1.0.2"
+  }
+}

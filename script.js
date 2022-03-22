@@ -5,10 +5,9 @@ function getBatmanGames() {
   fetch(URL)
     .then((response) => response.json())
     .then((data) => {
-      // console.log(data);
       let html = "";
+      console.log(data);
       data.map((item, index) => {
-        // console.log(item);
         html += `
                 <div class = "game-item w-3/12 border border-sky-500 flex flex-col items-center justify-center p-5 m-2"  data-id = "${item.gameID}">
                     <div class = "game-img">
@@ -16,11 +15,15 @@ function getBatmanGames() {
                     </div>
                     <div class = "game-name">
                         <h3>${item.title}</h3>
+                        <h6>Deal Rating: ${item.dealRating}</h6>
+                        <div>
+                          <span>Normal Price: ${item.normalPrice}, </span>
+                          <span> Sale Price: ${item.salePrice}</span>
+                        </div>
                     </div>
                 </div>
                 `;
       });
-      console.log(html);
       gameList.innerHTML = html;
     });
 }
